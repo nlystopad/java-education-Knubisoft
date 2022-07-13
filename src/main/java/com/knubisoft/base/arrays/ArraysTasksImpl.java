@@ -29,9 +29,20 @@ public class ArraysTasksImpl implements ArraysTasks {
             return array;
         } else {
             int[] returnArr = new int[3];
-
+            for (int x : array) {
+                if (x > returnArr[0]) {
+                    returnArr[2] = returnArr[1];
+                    returnArr[1] = returnArr[0];
+                    returnArr[0] = x;
+                } else if (x > returnArr[1]) {
+                    returnArr[2] = returnArr[1];
+                    returnArr[1] = x;
+                } else if (x > returnArr[2]) {
+                    returnArr[2] = x;
+                }
+            }
+            return returnArr;
         }
-        return null;
     }
 
     @Override
