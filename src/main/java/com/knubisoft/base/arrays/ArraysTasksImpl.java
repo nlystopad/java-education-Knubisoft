@@ -47,7 +47,20 @@ public class ArraysTasksImpl implements ArraysTasks {
 
     @Override
     public int findLongestIncreasingContinuesSubsequence(int[] array) {
-        return -1;
+        if (array.length == 0) {
+            return 0;
+        }
+        int returnVal = 1;
+        int currentSeq = 1;
+        for (int i = 1; i < array.length; i++) {
+            if (array[i - 1] < array[i]) {
+                currentSeq++;
+                returnVal = currentSeq;
+            } else {
+                currentSeq = 1;
+            }
+        }
+        return returnVal;
     }
 
     @Override
