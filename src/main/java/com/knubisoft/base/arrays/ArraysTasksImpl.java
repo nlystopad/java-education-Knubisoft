@@ -96,8 +96,13 @@ public class ArraysTasksImpl implements ArraysTasks {
 
     @Override
     public int findFinalValue(int[] nums, int original) {
-
-        return -1;
+        for (int i = 0; i < nums.length; i++)
+            for (int x : nums) {
+                if (x == original) {
+                    original *= 2;
+                }
+            }
+        return original;
     }
 
     @Override
