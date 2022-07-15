@@ -1,5 +1,7 @@
 package com.knubisoft.base.arrays;
 
+import java.util.Arrays;
+
 public class ArraysTasksImpl implements ArraysTasks {
 
     @Override
@@ -65,7 +67,14 @@ public class ArraysTasksImpl implements ArraysTasks {
 
     @Override
     public int sumOfAllUniqueElements(int[] array) {
-        return -1;
+        // find all unique
+        int[] unique = Arrays.stream(array).distinct().toArray();
+        // sum all unique
+        int finalVal = 0;
+        for (int x : unique) {
+            finalVal+=x;
+        }
+        return finalVal;
     }
 
     @Override
