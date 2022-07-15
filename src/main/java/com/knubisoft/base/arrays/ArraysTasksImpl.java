@@ -67,19 +67,31 @@ public class ArraysTasksImpl implements ArraysTasks {
 
     @Override
     public int sumOfAllUniqueElements(int[] array) {
-        // find all unique
+        // find all unique values
         int[] unique = Arrays.stream(array).distinct().toArray();
         // sum all unique
         int finalVal = 0;
         for (int x : unique) {
-            finalVal+=x;
+            finalVal += x;
         }
         return finalVal;
     }
 
     @Override
     public int[] moveZeroes(int[] array) {
-        return null;
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] == 0) {
+                //find next not 0 value
+                for (int y = i; y < array.length; y++) {
+                    if (array[y] != 0) {
+                        array[i] = array[y];
+                        array[y] = 0;
+                        break;
+                    }
+                }
+            }
+        }
+        return array;
     }
 
     @Override
