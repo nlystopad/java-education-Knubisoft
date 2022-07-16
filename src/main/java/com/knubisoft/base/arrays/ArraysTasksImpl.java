@@ -146,6 +146,7 @@ public class ArraysTasksImpl implements ArraysTasks {
 
     @Override
     public boolean containsDuplicate(int[] array) {
-        return false;
+        int[] distinct = Arrays.stream(array).distinct().toArray();
+        return distinct.length != array.length;
     }
 }
