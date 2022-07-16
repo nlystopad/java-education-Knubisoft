@@ -133,7 +133,15 @@ public class ArraysTasksImpl implements ArraysTasks {
 
     @Override
     public int missingNumber(int[] array) {
-        return -1;
+        int[] distinct = Arrays.stream(array).distinct().toArray();
+        Arrays.sort(distinct);
+        int i;
+        for (i = 0; i < distinct.length; i++) {
+            if (distinct[i] != i) {
+                return i;
+            }
+        }
+        return i;
     }
 
     @Override
