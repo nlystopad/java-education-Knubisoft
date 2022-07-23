@@ -1,8 +1,6 @@
 package com.knubisoft.base.string;
 
-import java.util.LinkedHashSet;
-import java.util.NoSuchElementException;
-import java.util.Set;
+import java.util.*;
 
 public class StringTasksImpl implements StringTasks {
 
@@ -90,26 +88,75 @@ public class StringTasksImpl implements StringTasks {
         if (str == null) {
             throw new IllegalArgumentException();
         }
-        return null;
+        StringBuilder returnString = new StringBuilder();
+        for (int i = 0; i < str.length(); i++) {
+            boolean flag = false;
+            for (int j = 0; j < str.length(); j++) {
+                // checking if two characters are equal
+                if (str.toLowerCase(Locale.ROOT).charAt(i) == str.toLowerCase(Locale.ROOT).charAt(j) && i != j) {
+                    flag = true;
+                    break;
+                }
+            }
+            if (!flag) {
+                returnString.append(str.charAt(i));
+            }
+        }
+        return returnString.toString();
     }
 
     @Override
     public String removeAllCharacters(String str, char charToRemove) {
-        return null;
+        if (str == null) {
+            throw new IllegalArgumentException();
+        }
+        StringBuilder returnString = new StringBuilder();
+        for (int i = 0; i < str.length(); i++) {
+            if (str.charAt(i) != charToRemove) {
+                returnString.append(str.charAt(i));
+            }
+        }
+        return returnString.toString();
     }
 
     @Override
     public String toCamelCase(String str) {
-        return null;
+        if (str == null || str.length() == 0) {
+            throw new IllegalArgumentException();
+        }
+        String[] words = str.split("[\\W_]+");
+        StringBuilder builder = new StringBuilder();
+        for (int i = 0; i < words.length; i++) {
+            String word = words[i];
+            if (i == 0) {
+                word = word.isEmpty() ? word : word.toLowerCase();
+            } else {
+                word = word.isEmpty() ? word : Character.toUpperCase(word.charAt(0)) + word.substring(1).toLowerCase();
+            }
+            builder.append(word);
+        }
+        return builder.toString();
     }
 
     @Override
-    public String getCountRepeatableString(String str) {
+    public String getCountRepeatableString(String str) { // don't rly understand task
         return null;
     }
 
     @Override
     public String sortStringCharactersAsc(String str) {
-        return null;
+        if (str == null) {
+            throw new IllegalArgumentException();
+        }
+        List<Character> characters = new ArrayList<>();
+        for (char c : str.toCharArray()) {
+            characters.add(c);
+        }
+        Collections.sort(characters);
+        StringBuilder returnString = new StringBuilder();
+        for (char c : characters) {
+            returnString.append(c);
+        }
+        return returnString.toString();
     }
 }
