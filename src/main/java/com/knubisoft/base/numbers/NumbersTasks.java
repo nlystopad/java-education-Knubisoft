@@ -100,7 +100,7 @@ public interface NumbersTasks {
      * @param number to check.
      * @return true if Armstrong Number, false if not.
      */
-    boolean isArmstrongNumber(int number);
+    boolean isArmstrongNumber(int number); // not cubes, task creator is weird
 
     /**
      * Calculate factorial.
