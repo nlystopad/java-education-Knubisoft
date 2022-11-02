@@ -1,7 +1,5 @@
-package com.knubisoft.tasks.algorithm.charsinstring.trees;
+package com.knubisoft.base.trees;
 
-import com.knubisoft.base.trees.TreeTasks;
-import com.knubisoft.base.trees.TreeTasksImpl;
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
